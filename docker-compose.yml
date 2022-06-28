@@ -47,4 +47,4 @@ services:
 
 
 networks:
-  - shared-network:             
+  shared-network:             

@@ -18,7 +18,7 @@ services:
    restart: unless-stopped
    image: jira-api-prod:1.0.0
    build:
-     context: api
+     context: ./api/src/
     
      dockerfile: Dockerfile
    ports:

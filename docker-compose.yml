@@ -33,7 +33,7 @@ services:
    restart: unless-stopped
    image: jira-client-prod:1.0.0
    build:
-     context: client
+     context: ./client
      
      dockerfile: Dockerfile
    ports:

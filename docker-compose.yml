@@ -11,15 +11,15 @@ services:
     networks:
        - shared-network
     volumes:
-      -./posgres-db:/var/lib/postgresql/data
+      - ./postgres-db:/var/lib/postgresql/data
 
   api:
    container_name: jira_api
-   retart: unless-stopped
+   restart: unless-stopped
    image: jira-api-prod:1.0.0
    build:
-     context: api
-     target: production
+     context: ./api
+    
      dockerfile: Dockerfile
    ports:
     - 3000:3000
@@ -30,14 +30,16 @@ services:
 
   client:
    container_name: jira_client
-   retart: unless-stopped
+   restart: unless-stopped
    image: jira-client-prod:1.0.0
    build:
-     context: client
-     target: production
+     context: ./client
+     
      dockerfile: Dockerfile
    ports:
     - 8080:8081
+   volumes:
+    - ./postgres-db:/var/lib/postgresql/data 
    networks:
     - shared-network
    depends_on:
@@ -47,4 +49,4 @@ services:
 
 
 networks:
-  - shared-network:             
+  shared-network:             

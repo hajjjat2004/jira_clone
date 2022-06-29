@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
-    "start:production": "node -r server.js build/server.js",
+    "start:production": "node -r ./server.js build/server.js",
     "test:jest": "jest",
     "test:cypress": "node_modules/.bin/cypress open",
     "build": "rm -rf build && webpack --config webpack.config.production.js --progress",
